@@ -144,11 +144,9 @@ footer a {
     font-size: 26px;
 }
 
-
 @media screen and (max-width: 800px) {
-    nav {
-        display: none;
-    }
+   
+   
     nav.responsive {
         display: block;
         background-color: rgba(0, 0, 0, .8);
@@ -158,6 +156,12 @@ footer a {
         left: 0;
         padding: 10px 0;
     }
+    .contacto{
+        display: none;
+    }
+    .registro{display: none;}
+    .sn{
+        display: none;}
     nav.responsive ul {
         display: block !important;
         text-align: center;
@@ -171,6 +175,17 @@ footer a {
     #inicio .contenido .presentacion h2 {
         font-size: 40px;
     }
-  
-    
+    #sobremi {
+        padding: 50px 0;
+        display: block;
+    }
+    #sobremi .sobremi .titulo-seccion {
+        text-align: center;
+    }
+    #sobremi .sobremi h2 {
+        font-size: 25px;
+        text-align: center;
+    }
+
+
 }
