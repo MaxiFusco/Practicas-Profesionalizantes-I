@@ -1,9 +1,37 @@
 
 var formulario1 = document.getElementById('form__auth');
 var respuesta = document.getElementById('respuesta');
+var contrasena = document.getElementById('password');
+
+function validarContraseña(contrasena) {
+
+    if (contrasena.length < 8) {
+        return false;
+    }
+
+   else if (!/[A-Z]/.test(contrasena)) {
+        return false;
+    }
+
+  else if (!/\d/.test(contrasena)) {
+        return false;
+    }
+    return true;
+}
+if (!validarContraseña(contrasena)) {
+    alert("contraseña correcta.");
+}else{
+    alert("La contraseña es incorrrecta.");
+}
+
+
 
 formulario1.addEventListener("submit", function(event) {
-    event.preventDefault();
+    if (!validarContraseña(contrasena)) {
+        event.preventDefault(); 
+    }else{
+        alert("La contraseña no cumple con los requisitos.");
+    }
     console.log("click registro correcto")
 
     const mail = document.getElementById("mail").value;
