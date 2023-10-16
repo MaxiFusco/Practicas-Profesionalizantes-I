@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -20,7 +20,7 @@
                             <li><a href="index.html" class="seleccionado" >INICIO</a></li>
                             <li><a href="index.html" class="sn">SOBRE NOSOTROS</a></li>
                             <li><a href="contacto.html" class="contacto">CONTACTO</a></li>
-                            <li><a href="registro.html" class="registro">REGISTRARSE</a></li>
+                            <li><a href="" class="contacto">Hola, Nombre</a></li>
                         </ul>
                     </nav>
 </header>
@@ -28,30 +28,30 @@
     </section>
 
     <article>
-        <h2>¡Qué bueno verte por acá!</h2>
+        <h2>¡Bienvenido!</h2>
       
-        <p>Para registrarte, es necesario que completes los siguientes datos:</p>
+        <p>Necesitas completar tus datos para entrar en la base de datos en la cual participan muchas empresas</p>
       
       
         <form id="form__auth">
           <input
-            type="email" id="mail"  placeholder="Correo Electronico"/>
+            type="number" id="nac"  placeholder="Fecha de nacimiento"/>
           <div class="password__container">
-            <input type="password" id="password" placeholder="Contraseña"/>
+            <input type="number" id="number" placeholder="Numero de telefono"/>
             <span id="password-error" style="color: red;"></span><br>
           </div>
-          <input type="text"  id="name" placeholder="Nombre"/>
-          <input type="text" id="lastname" placeholder="Apellido"  /> 
-          <button type="submit"> <P class="botonregistro">Registrarse</P></button>
+          <input type="text"  id="province" placeholder="Provincia"/>
+          <input type="text" id="localidad" placeholder="Localidad"  /> 
+          <input type="text" id="job" placeholder="Area de Trabajo"  /> 
+          <input type="text" id="education" placeholder="Explique brevemente su educacion"  /> 
+          <input type="text" id="experiencie" placeholder="Explique brevemente su experiencia"  /> 
+          <button type="submit"> <P class="botonregistro">Enviar</P></button>
         </form>
         <div class="mt-3" id="respuesta">
         </div>
         
       
-        <p>¿Tienes cuenta?</p>
       
-       <button class="auth__register"><a href="login.html"> <p class="inicio">Inicia sesión aquí</p></a> </button>
-      </article>
 
   
     <footer>
@@ -61,7 +61,7 @@
        
 
     </footer>
-    <script src="registro.js"></script>
+    <script src="usuario.js"></script>
 </body>
 
 </html>

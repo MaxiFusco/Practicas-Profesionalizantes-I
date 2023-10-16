@@ -109,9 +109,6 @@ article {
     background: black;
     
   }
-  a{
-    text-decoration: none;
-  }
   
   .password__container {
     width: 100%;
@@ -159,7 +156,6 @@ footer a {
 }
 .inicio{
     color: white ;
-    text-decoration: none;
 }
 
 .botonregistro{
