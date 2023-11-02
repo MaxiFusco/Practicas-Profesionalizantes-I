@@ -9,6 +9,14 @@
 html {
     scroll-behavior: smooth;
 }
+.error {
+  color: red;
+  display: none;
+}
+
+.invalid {
+  border: 2px solid red;
+}
 
 #inicio .contenido header {
     background-color: black;

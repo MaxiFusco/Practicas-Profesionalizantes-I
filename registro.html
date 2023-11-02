@@ -1,14 +1,12 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="registro.css">
     <title>A-Labur-AR</title>
 </head>
-
 <body>
     <section id="inicio">
         <div class="contenido">
@@ -17,13 +15,14 @@
                     <h1>A-Labur-AR</h1>
                     <nav id="nav" class="">
                         <ul id="links">
-                            <li><a href="index.html" class="seleccionado" >INICIO</a></li>
+                            <li><a href="index.html" class="seleccionado">INICIO</a></li>
                             <li><a href="index.html" class="sn">SOBRE NOSOTROS</a></li>
                             <li><a href="contacto.html" class="contacto">CONTACTO</a></li>
                             <li><a href="registro.html" class="registro">REGISTRARSE</a></li>
                         </ul>
                     </nav>
-</header>
+                </div>
+            </header>
         </div>
     </section>
 
@@ -32,36 +31,30 @@
       
         <p>Para registrarte, es necesario que completes los siguientes datos:</p>
       
-      
         <form id="form__auth">
-          <input
-            type="email" id="mail"  placeholder="Correo Electronico"/>
-          <div class="password__container">
-            <input type="password" id="password" placeholder="Contraseña"/>
-            <span id="password-error" style="color: red;"></span><br>
-          </div>
-          <input type="text"  id="name" placeholder="Nombre"/>
-          <input type="text" id="lastname" placeholder="Apellido"  /> 
-          <button type="submit"> <P class="botonregistro">Registrarse</P></button>
+            <input type="email" id="mail" placeholder="Correo Electrónico" name="email" required/>
+            <div class="password__container"> 
+                <input type="password" id="password" placeholder="Contraseña" name="password" required/>
+                <span id="password-error" style="color: red;"></span><br>
+            </div>
+            <input type="text" id="name" placeholder="Nombre"/>
+            <input type="text" id="lastname" placeholder="Apellido" /> 
+            <button type="submit" id="registroBtn" > <P class="botonregistro">Registrarse</P></button>
+            <p id="errorMensaje" class="error">Corrija los errores antes de registrarse.</p>
         </form>
         <div class="mt-3" id="respuesta">
         </div>
-        
       
         <p>¿Tienes cuenta?</p>
       
-       <button class="auth__register"><a href="login.html"> <p class="inicio">Inicia sesión aquí</p></a> </button>
-      </article>
+        <button class="auth__register"><a href="login.html">Inicia sesión aquí</a></button>
+    </article>
 
-  
     <footer>
-        <p>© Maximiliano Fusco y Eduardo Lucero- 2023 ©</p>
-        <P>-Instituto Manuel Belgrano-</P>
-        <p>-Practicas Profesionalizantes 1-</p>
-       
-
+        <p>© Maximiliano Fusco y Eduardo Lucero - 2023 ©</p>
+        <p>-Instituto Manuel Belgrano-</p>
+        <p>-Prácticas Profesionalizantes 1-</p>
     </footer>
     <script src="registro.js"></script>
 </body>
-
 </html>

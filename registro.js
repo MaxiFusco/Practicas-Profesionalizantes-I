@@ -1,49 +1,51 @@
 
-var formulario1 = document.getElementById('form__auth');
-var respuesta = document.getElementById('respuesta');
-var contrasena = document.getElementById('password');
+document.getElementById("form__auth").addEventListener("submit", function (event) {
+    const emailInput = document.getElementById("mail");
+    const passwordInput = document.getElementById("password");
+    const nameInput = document.getElementById("name");
+    const lastnameInput = document.getElementById("lastname");
+    const registroBtn = document.getElementById("registroBtn");
+    const errorMensaje = document.getElementById("errorMensaje");
 
-function validarContraseña(contrasena) {
+    const email = emailInput.value;
+    const password = passwordInput.value;  
+    const name = nameInput.value;
+    const lastname = lastnameInput.value;
 
-    if (contrasena.length < 8) {
-        return false;
+    const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+    let valid = true;
+
+    if (!email.match(emailRegex)) {
+        valid = false;
+        emailInput.classList.add("invalid");
+    } else {
+        emailInput.classList.remove("invalid");
     }
 
-   else if (!/[A-Z]/.test(contrasena)) {
-        return false;
+    if (!password.match(passwordRegex)) {
+        valid = false;
+        passwordInput.classList.add("invalid");
+    } else {
+        passwordInput.classList.remove("invalid");
     }
 
-  else if (!/\d/.test(contrasena)) {
-        return false;
+    if (valid) {
+        errorMensaje.style.display = "none";
+        registroBtn.removeAttribute("disabled");
+        emailInput.value = "";
+        passwordInput.value = "";
+    } else {
+        errorMensaje.style.display = "block";
+        registroBtn.setAttribute("disabled", "disabled");
+        event.preventDefault();
     }
-    return true;
-}
-if (!validarContraseña(contrasena)) {
-    alert("contraseña correcta.");
-}else{
-    alert("La contraseña es incorrrecta.");
-}
-
-
-
-formulario1.addEventListener("submit", function(event) {
-    if (!validarContraseña(contrasena)) {
-        event.preventDefault(); 
-    }else{
-        alert("La contraseña no cumple con los requisitos.");
-    }
-    console.log("click registro correcto")
-
-    const mail = document.getElementById("mail").value;
-    const password = document.getElementById("password").value;
-    const name = document.getElementById("name").value;
-    const lastname = document.getElementById("lastname").value;
-
 
     const formData = new FormData();
-    formData.append("mail", mail);
+    formData.append("email", email); 
     formData.append("password", password);
-    formData.append("name",name);
+    formData.append("name", name);
     formData.append("lastname", lastname);
 
     fetch('register.php', {
@@ -53,8 +55,8 @@ formulario1.addEventListener("submit", function(event) {
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        if(data==='error'){
-
+        if (data === 'error') {
+            // Manejar el error de registro si es necesario.
         }
     })
     .catch(error => {
