@@ -1,24 +1,5 @@
-
-document.getElementById("registroBtn").addEventListener("click", function() {
-    this.classList.add("animate");
-
-    this.addEventListener("animationend", function() {
-        this.classList.remove("animate");
-    });
-});
-document.getElementById("registrologin").addEventListener("click", function() {
-    this.classList.add("animate");
-
-    this.addEventListener("animationend", function() {
-        this.classList.remove("animate");
-    });
-});
-
-
-document.getElementById("form__auth").addEventListener("submit", function (event) {
-    
+document.getElementById("form__auth").addEventListener("submit", function(event) {
     event.preventDefault(); 
-    
 
     const emailInput = document.getElementById("email");
     const passwordInput = document.getElementById("password");
@@ -29,21 +10,14 @@ document.getElementById("form__auth").addEventListener("submit", function (event
     const añosexpInput = document.getElementById("añosexp");
     const sueldoInput = document.getElementById("sueldo");
     const localidadInput = document.getElementById("localidad");
-    const registroBtn = document.getElementById("registroBtn");
     const messages = document.getElementById("messages");
 
-    messages.innerHTML = '';
+    messages.innerHTML = ''; 
     const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
 
     let isValid = true;
-    
-console.log('Messages cleared');
-messages.innerHTML += '<p class="error">El correo electrónico es obligatorio.</p>';
-console.log('Error message added');
 
-
-    
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
     const name = nameInput.value.trim();
@@ -62,7 +36,6 @@ console.log('Error message added');
         messages.innerHTML += '<p class="error">El correo electrónico no es válido.</p>';
         isValid = false;
     }
-
     if (!password) {
         messages.innerHTML += '<p class="error">La contraseña es obligatoria.</p>';
         isValid = false;
@@ -70,6 +43,7 @@ console.log('Error message added');
         messages.innerHTML += '<p class="error">La contraseña debe tener al menos 8 caracteres, incluyendo una letra mayúscula y un número.</p>';
         isValid = false;
     }
+
 
     const fields = [
         { value: name, name: 'nombre' },
@@ -88,9 +62,7 @@ console.log('Error message added');
         }
     });
 
-    
     if (isValid) {
-        
         const formData = new FormData();
         formData.append("email", email);
         formData.append("password", password);
@@ -102,17 +74,16 @@ console.log('Error message added');
         formData.append("sueldo", sueldo);
         formData.append("localidad", localidad);
 
-        fetch('http://localhost/register.php', {
+        fetch('http://localhost/modificar.php', {
             method: "POST",
             body: formData
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             if (data.error) {
                 messages.innerHTML += `<p class="error">${data.error}</p>`;
             } else if (data.status === "success") {
-                messages.innerHTML = '<p class="success">¡Registro exitoso!</p>';
+                messages.innerHTML = '<p class="success">¡Datos actualizados exitosamente!</p>';
                 document.getElementById("form__auth").reset();
             } else {
                 messages.innerHTML += '<p class="error">Respuesta inesperada del servidor.</p>';
@@ -124,5 +95,3 @@ console.log('Error message added');
         });
     }
 });
-
-

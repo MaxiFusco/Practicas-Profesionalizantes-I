@@ -1,44 +1,47 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Recibir datos del formulario
-    $mail = $_POST['mail'];
-    $contraseña = $_POST['password'];
-    $nombre = $_POST['name'];
-    $apellido = $_POST['lastname'];
+ header("Access-Control-Allow-Origin: *"); 
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS"); 
+header("Access-Control-Allow-Headers: Content-Type"); 
+header('Content-Type: application/json');
 
-}
 
-if($mail===''||$password===''||$name===''||$lastname ===''){
-    echo json_encode('error');
-}else{
-    echo json_encode('Registro exitoso para el usuario ');
-}
-
-$servername = "localhost"; 
-$username = "root";  
+$servername = "localhost";
+$username = "root"; 
 $password = ""; 
-$database = "phplogin"; 
+$dbname = "phplogin";
 
-$conn = new mysqli($servername, $username, $password, $database);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Verificar si la conexión se ha establecido con éxito
+
 if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
-} else{
-    echo"conectado";
+    die(json_encode(array("error" => "Connection failed: " . $conn->connect_error)));
 }
 
-$sql = "INSERT INTO user (mail, contraseña, nombre, apellido) VALUES ('$mail', '$contraseña','$nombre','$apellido')";
+$email = isset($_POST['email']) ? $_POST['email'] : '';
+$password = isset($_POST['password']) ? $_POST['password'] : '';
+$name = isset($_POST['name']) ? $_POST['name'] : '';
+$lastname = isset($_POST['lastname']) ? $_POST['lastname'] : '';
+$edad = isset($_POST['edad']) ? $_POST['edad'] : '';
+$actividad = isset($_POST['actividad']) ? $_POST['actividad'] : '';
+$añosexp = isset($_POST['añosexp']) ? $_POST['añosexp'] : '';
+$sueldo = isset($_POST['sueldo']) ? $_POST['sueldo'] : '';
+$localidad = isset($_POST['localidad']) ? $_POST['localidad'] : '';
 
-if (mysqli_query($conn, $sql)) {
-    echo "Registro insertado con éxito";
-} else {
-    echo "Error al insertar el registro: " . mysqli_error($conn);
-}
 
+$sql = "INSERT INTO `usuarios` (mail, contraseña, nombre, apellido, edad, actividad, añosexp, sueldo, localidad) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-// Preparar la consulta
 $stmt = $conn->prepare($sql);
+$stmt->bind_param("sssssssss", $email, $password, $name, $lastname, $edad, $actividad, $añosexp, $sueldo, $localidad);
 
+if ($stmt->execute()) {
+    echo json_encode(array("status" => "success", "message" => "Registro exitoso para el usuario."));
+} else {
+    echo json_encode(array("error" => "Error: " . $stmt->error));
+}
+
+$stmt->close();
+$conn->close();
 ?>
+
 

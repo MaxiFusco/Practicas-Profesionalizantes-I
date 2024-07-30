@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
-    <link rel="stylesheet" href="registro.css">
+    <link rel="stylesheet" href="login.css">
     <title>A-Labur-AR</title>
 </head>
 
@@ -19,7 +19,6 @@
                         <ul id="links">
                             <li><a href="index.html" class="seleccionado" >INICIO</a></li>
                             <li><a href="index.html" class="sn">SOBRE NOSOTROS</a></li>
-                            <li><a href="contacto.html" class="contacto">CONTACTO</a></li>
                             <li><a href="registro.html" class="registro">REGISTRARSE</a></li>
                         </ul>
                     </nav>
@@ -28,27 +27,27 @@
     </section>
 
     <article>
-        <h2>Inicio de sesion</h2>
-      
-      
+        <h2>Inicio de sesion</h2>  
       
         <form id="form__auth">
           <input
-            type="email" id="mail"  placeholder="Correo Electronico"/>
+            type="email" id="mail"  placeholder="Correo Electronico" required/>
           <div class="password__container">
-            <input type="password" id="password" placeholder="Contraseña"/>
+            <input type="password" id="password" placeholder="Contraseña" required/>
             <span id="password-error" style="color: red;"></span><br>
           </div>
-          <button type="submit"> <P class="botonregistro">Iniciar sesion</P></button>
+          <button type="submit" id="botonregistro"> <p class="botonregistro">Iniciar sesion</p></button>
         </form>
-        <div class="mt-3" id="respuesta">
+        <div id="messages">
+
         </div>
+        <div class="mt-3" id="respuesta"></div>
         
       
-      
+        </article>
   
     <footer>
-        <p>© Maximiliano Fusco y Eduardo Lucero- 2023 ©</p>
+        <p>© Maximiliano Fusco, Eduardo Lucero, Jennifer Gonzalez- 2024 ©</p>
         <P>-Instituto Manuel Belgrano-</P>
         <p>-Practicas Profesionalizantes 1-</p>
        

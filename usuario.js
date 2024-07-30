@@ -1,42 +1,47 @@
-var formulario1 = document.getElementById('form__auth');
+document.addEventListener('DOMContentLoaded', function() {
+    const deleteButton = document.getElementById('eliBtn'); 
+    const emailInput = document.getElementById('mail');
+    const responseDiv = document.getElementById('response'); 
 
+    if (deleteButton && emailInput && responseDiv) {
+        deleteButton.addEventListener('click', async function() {
+            const mail = emailInput.value.trim();
 
-formulario1.addEventListener("submit", function(event) {
-    event.preventDefault();
-    console.log("click registro correcto")
+            if (!mail) {
+                responseDiv.innerHTML = '<p class="error">Por favor, ingresa el correo electrónico.</p>';
+                return;
+            }
 
-    const nac = document.getElementById("nac").value;
-    const number = document.getElementById("number").value;
-    const province = document.getElementById("province").value;
-    const localidad = document.getElementById("localidad").value;
-    const job = document.getElementById("job").value;
-    const education = document.getElementById("education").value;
-    const experiencie = document.getElementById("experiencie").value;
-  
+            const formData = new FormData();
+            formData.append('mail', mail);
 
+            try {
+                const response = await fetch('http://localhost/usuario.php', {
+                    method: 'POST',
+                    body: formData
+                });
 
+                if (!response.ok) {
+                    throw new Error(`Error en la red: ${response.status} ${response.statusText}`);
+                }
 
-    const formData = new FormData();
-    formData.append("nac", nac);
-    formData.append("number", number);
-    formData.append("province",province);
-    formData.append("localidad", localidad);
-    formData.append("job", job);
-    formData.append("education",education);
-    formData.append("experiencie", experiencie);
+                const data = await response.json();
 
-    fetch('usuario.php', {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log(data);
-        if(data==='error'){
-         
-        }
-    })
-    .catch(error => {
-        console.error(error);
-    });
+                if (data.status === 'success') {
+                    responseDiv.innerHTML = `<p class="success">${data.message}</p>`;
+                        setTimeout(function() {
+                            window.location.href = 'index.html'; 
+                        }, 3000); 
+                } else {
+                    responseDiv.innerHTML = `<p class="error">${data.message}</p>`;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                responseDiv.innerHTML = `<p class="error">Hubo un problema con la solicitud: ${error.message}</p>`;
+            }
+        });
+    } else {
+        console.error('Elementos del DOM no encontrados.');
+    }
 });
+

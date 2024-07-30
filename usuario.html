@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
-    <link rel="stylesheet" href="registro.css">
+    <link rel="stylesheet" href="usuario.css">
     <title>A-Labur-AR</title>
 </head>
 
@@ -19,8 +19,9 @@
                         <ul id="links">
                             <li><a href="index.html" class="seleccionado" >INICIO</a></li>
                             <li><a href="index.html" class="sn">SOBRE NOSOTROS</a></li>
-                            <li><a href="contacto.html" class="contacto">CONTACTO</a></li>
-                            <li><a href="" class="contacto">Hola, Nombre</a></li>
+                            <li><a href="index.html" class="contacto">CERRAR SESION</a></li>
+                            <li><a href="calculadora.html" class="contacto">CALCULADORA</a></li>
+                            
                         </ul>
                     </nav>
 </header>
@@ -30,32 +31,24 @@
     <article>
         <h2>¡Bienvenido!</h2>
       
-        <p>Necesitas completar tus datos para entrar en la base de datos en la cual participan muchas empresas</p>
-      
-      
-        <form id="form__auth">
-          <input
-            type="number" id="nac"  placeholder="Fecha de nacimiento"/>
-          <div class="password__container">
-            <input type="number" id="number" placeholder="Numero de telefono"/>
-            <span id="password-error" style="color: red;"></span><br>
-          </div>
-          <input type="text"  id="province" placeholder="Provincia"/>
-          <input type="text" id="localidad" placeholder="Localidad"  /> 
-          <input type="text" id="job" placeholder="Area de Trabajo"  /> 
-          <input type="text" id="education" placeholder="Explique brevemente su educacion"  /> 
-          <input type="text" id="experiencie" placeholder="Explique brevemente su experiencia"  /> 
-          <button type="submit"> <P class="botonregistro">Enviar</P></button>
-        </form>
-        <div class="mt-3" id="respuesta">
-        </div>
-        
-      
-      
+        <p>Muchas gracias por registrate, un agente revisara tus datos y te contactara por mail
+         para la entrevista con una de las muchas empresas registradas en nuestra base de datos.</p><br>
+         <p>Tambien puedes modificar algun dato.</p>
+        <button id="modBtn"><a class="modBtn" href="modificar.html">Modificar Datos</a></button> 
+         <br>
+         <p id="Eliminar">O eliminar tu cuenta y postulacion</p>
+         <form id="form__auth">
+         <input id="mail" placeholder="Correo Electronico" name="mail" required />
+         </form>
+         <button type="button"  id="eliBtn">Eliminar Cuenta</button> 
+         <div id="response"></div>
 
+
+      
+    </article>
   
     <footer>
-        <p>© Maximiliano Fusco y Eduardo Lucero- 2023 ©</p>
+        <p>© Maximiliano Fusco, Eduardo Lucero, Jennifer Gonzalez- 2024 ©</p>
         <P>-Instituto Manuel Belgrano-</P>
         <p>-Practicas Profesionalizantes 1-</p>
        

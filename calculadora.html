@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="calculadora.css">
+</head>
+
+<body>
+    <section id="inicio">
+        <div class="contenido">
+            <header>
+                <div class="contenido-header">
+                    <h1>A-Labur-AR</h1>
+                    <nav id="nav" class="">
+                        <ul id="links">
+                            <li><a href="index.html" class="seleccionado">INICIO</a></li>
+                            <li><a href="#sobrenosotros">SOBRE NOSOTROS</a></li>
+                            <li><a href="usuario.html">MI USUARIO</a></li>
+                        </ul>
+                    </nav>
+            </header>
+
+            <div class="calculator">
+                <div class="display" id="display">0</div>
+                <div class="buttons">
+                    <button class="button clear" onclick="clearDisplay()">C</button>
+                    <button class="button" onclick="appendToDisplay('7')">7</button>
+                    <button class="button" onclick="appendToDisplay('8')">8</button>
+                    <button class="button" onclick="appendToDisplay('9')">9</button>
+                    <button class="button operator" onclick="setOperator('+')">+</button>
+                    <button class="button" onclick="appendToDisplay('4')">4</button>
+                    <button class="button" onclick="appendToDisplay('5')">5</button>
+                    <button class="button" onclick="appendToDisplay('6')">6</button>
+                    <button class="button operator" onclick="setOperator('-')">-</button>
+                    <button class="button" onclick="appendToDisplay('1')">1</button>
+                    <button class="button" onclick="appendToDisplay('2')">2</button>
+                    <button class="button" onclick="appendToDisplay('3')">3</button>
+                    <button class="button operator" onclick="setOperator('*')">*</button>
+                    <button class="button" onclick="appendToDisplay('0')">0</button>
+                    <button class="button" onclick="appendToDisplay('.')">.</button>
+                    <button class="button operator" onclick="setOperator('/')">/</button>
+                    <button class="button equal" onclick="calculate()">=</button>
+                </div>
+            </div>
+            
+    <footer>
+        <p>© Maximiliano Fusco, Eduardo Lucero, Jennifer Gonzalez- 2024 ©</p>
+        <P>-Instituto Manuel Belgrano-</P>
+        <p>-Practicas Profesionalizantes 1-</p>
+    </footer>
+
+            <script src="calculadora.js"></script>
+</body>
+
+</html>

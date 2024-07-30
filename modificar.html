@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
-    <link rel="stylesheet" href="registro.css">
+    <link rel="stylesheet" href="modificar.css">
     <title>A-Labur-AR</title>
 </head>
 <body>
@@ -17,7 +17,7 @@
                         <ul id="links">
                             <li><a href="index.html" class="seleccionado">INICIO</a></li>
                             <li><a href="index.html" class="sn">SOBRE NOSOTROS</a></li>
-                            <li><a href="login.html" class="registro">INICIAR SESION</a></li>
+                            <li><a href="usuario.html" class="registro">VOLVER</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -26,10 +26,11 @@
     </section>
 
     <article>
-        <h2>¡Qué bueno verte por acá!</h2>
-        <p>Para registrarte, es necesario que completes los siguientes datos:</p>
+        <h2>¡Modifica tus datos!</h2>
+        <p>Ingresa el mail de la cuenta que quiere modificar</p>
         <form id="form__auth">
             <input type="email" id="email" placeholder="Correo Electrónico" name="email" required />
+            <p>Ingrese los nuevos datos:</p>
             <div class="password__container">
                 <input type="password" id="password" placeholder="Contraseña" name="password" required />
                 <span id="password-error" style="color: red;"></span><br>
@@ -41,12 +42,10 @@
             <input type="number" id="añosexp" placeholder="Años de Experiencia" name="añosexp" required />
             <input type="number" id="sueldo" placeholder="Sueldo Pretendido" name="sueldo" required/>
             <input type="text" id="localidad" placeholder="Localidad donde vive" name="localidad" required/>
-            <button type="submit" id="registroBtn"><p class="botonregistro">Registrarse</p></button>
+            <button type="submit" id="registroBtn"><p class="botonregistro">Modificar</p></button>
         </form>
         <div id="messages"></div>
         <div class="mt-3" id="respuesta"></div>
-        <p>¿Tienes cuenta?</p>
-        <button class="botonlogin" id="registrologin"><a class="registroBtn" href="login.html">Inicia sesión aquí</a></button>
     </article>
 
     <footer>
@@ -54,6 +53,6 @@
         <p>-Instituto Manuel Belgrano-</p>
         <p>-Prácticas Profesionalizantes 1-</p>
     </footer>
-    <script src="registro.js"></script>
+    <script src="modificar.js"></script>
 </body>
 </html>

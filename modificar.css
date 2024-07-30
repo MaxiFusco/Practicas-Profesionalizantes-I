@@ -9,9 +9,33 @@
 html {
     scroll-behavior: smooth;
 }
+@keyframes changeColor {
+  0% {
+      background-color: rgb(30, 144, 255);
+  }
+  100% {
+      background-color: green; 
+  }
+}
 
+.animate {
+  animation: changeColor 1s forwards; 
+}
+#messages {
+  margin-top: 20px;
+}
 
+.success {
+  color: green;
+}
 
+.error {
+  color: red;
+}
+
+.invalid {
+  border: 2px solid red;
+}
 
 #inicio .contenido header {
     background-color: black;
@@ -58,75 +82,92 @@ html {
     color: gold;
 }
 
-.contact__section {
-    width: 100%;
-    height: 100%;
-    padding: 5rem 0;
+
+article {
+    width: 95%;
+    max-width: 800px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 5rem auto;
   }
   
-  .contact__content {
-    width: 95%;
-    max-width: 1200px;
-    margin: 0 auto;
-    border: 1px solid #000000;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 3rem;
-    gap: 2rem;
-  } 
   h2 {
-    width: 100%;
-    max-width: 700px;
     text-align: center;
     font-size: 2rem;
+    font-weight: 600;
   }
   
-  .formulario{
-    width: 100%;
+  #form__auth{
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
   }
-  
-  .ingreso {
-    width: 100%;
+  .auth__buttons {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
   
-
   input {
     width: 100%;
     height: 60px;
     border: 1px solid #000000;
     border-radius: 10px;
-    padding: 1rem;
+    padding-left: 1rem;
   }
-  
   
   button {
-    width: 100%;
-    max-width: 368px;
-    height: 70px;
-    margin: 0 auto;
-    background: black;
+    height: 50px;
+    background:rgb(30, 144, 255);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-    font-weight: bold;
-    font-size: 20px;
     border: none;
   }
-  .Enviar{
-    color: white;
-  }
-
   
- 
-
+  p {
+    text-align: center;
+    font-weight: 400;
+  }
+  
+  .auth__register {
+    background: black;
+    
+  }
+  a{
+    text-decoration: none;
+  }
+  
+  .password__container {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .password__container input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+  }
+  
+  .password__container i {
+    width: 60px;
+    height: 60px;
+    background-color: #f9d9da;
+    z-index: 1;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 
 footer {
@@ -143,10 +184,34 @@ footer a {
     margin: 5px;
     font-size: 26px;
 }
+.inicio{
+    color: white ;
+    text-decoration: none;
+}
+
+.botonregistro{
+    color: white ;
+}
+.registroBtn{
+  color: white ;
+}
+
+
+
 
 @media screen and (max-width: 800px) {
-   
-   
+    .redes {
+        display: none;
+    }
+    .sn {
+        display: none;
+    }
+   .registro{
+    display: none;
+   }
+   .contacto{
+    display: none;
+   }
     nav.responsive {
         display: block;
         background-color: rgba(0, 0, 0, .8);
@@ -156,12 +221,6 @@ footer a {
         left: 0;
         padding: 10px 0;
     }
-    .contacto{
-        display: none;
-    }
-    .registro{display: none;}
-    .sn{
-        display: none;}
     nav.responsive ul {
         display: block !important;
         text-align: center;
@@ -175,17 +234,6 @@ footer a {
     #inicio .contenido .presentacion h2 {
         font-size: 40px;
     }
-    #sobremi {
-        padding: 50px 0;
-        display: block;
-    }
-    #sobremi .sobremi .titulo-seccion {
-        text-align: center;
-    }
-    #sobremi .sobremi h2 {
-        font-size: 25px;
-        text-align: center;
-    }
-
-
+  
+    
 }
